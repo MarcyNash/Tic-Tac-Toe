@@ -1,0 +1,20 @@
+$font-size: 18px;
+$line-height: 1.6;
+$vertical-margin: 40px;
+$max-width: 650px;
+$horizontal-padding: 10px;
+$heading-line-height: 1.2;
+
+h1,
+h2,
+h3 {
+  line-height: $heading-line-height;
+}
+
+// body {
+//   @include breakpoint(tiny) {
+//     // background-color: yellow;
+//     margin: $vertical-align 20px;
+//     max-width: 100%;
+//   }
+// }

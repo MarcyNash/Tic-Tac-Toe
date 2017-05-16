@@ -1,0 +1,15 @@
+@import './colors';
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.box {
+  border: 1px solid $white;
+}
+
+.cell-height {
+  height: 150px;
+  // width: 200px;
+}

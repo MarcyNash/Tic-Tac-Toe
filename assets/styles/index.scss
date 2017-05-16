@@ -1,2 +1,4 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import './bootstrap';  // must be at the top
+@import './typography';
+@import './theme';
+@import './breakpoints';  // must be at the bottom
