@@ -12,14 +12,61 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <form id="gameboard">
+      <h2>3 x 3 Example</h2>
+      <div class="container">
+      <div class="row">
+        <div data-indexID="0" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+        <div data-indexID="1" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+        <div data-indexID="2" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+      </div>
+      <div class="row">
+        <div data-indexID="3" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+        <div data-indexID="4" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+        <div data-indexID="5" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+      </div>
+      <div class="row">
+        <div data-indexID="6" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+        <div data-indexID="7" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+        <div data-indexID="8" class="col-xs-4 col-md-4 box cell-height ttt-cell">cell</div>
+      </div>
+    </div>
+  </form>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" name="sign-me-in">
+  Click Me To Sign In!
+</button>
+
+
+<!-- Modal -->
+<form id="sign-in">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="Sign In">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset>
+        <label>Email
+        <input type="text" name="[credentials][email]" value="">
+        </label>
+        <label>Password
+        <input type="password" name="[credentials][password]" value="">
+      </label>
+      </fieldset>
+      </div>
+      <div class="modal-footer">
+      <input type="submit" name="submit" value="Sign In!">
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
     </body>
 </html>
