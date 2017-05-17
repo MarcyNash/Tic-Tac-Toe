@@ -61,7 +61,7 @@ const onCreateGame = function (event) {
 const onCellClicked = function (event) {
   event.preventDefault()
   console.log(event.target)
-  ui.onCellClicked()
+  api.update(event)
   .then(ui.onCellClickedSuccess)
   .catch(ui.onCellClickedFailure)
 }

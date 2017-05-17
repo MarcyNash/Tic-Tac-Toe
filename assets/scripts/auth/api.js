@@ -19,10 +19,10 @@ const signIn = function (data) {
     data
   })
     .then((response) => {
-      console.log('response from sign in ' + response)
-      store.userToken = response.user.token
-      store.userID = response.user.id
-      // store.userEmail = response.userEmail
+      const newPlayer = new store.Player(response.user.id, response.user.email, response.user.token)
+      // if (store.playersArray.prototype.includes(newPlayer) === false) {
+      store.playersArray.push(newPlayer)
+      // }
     })
 }
 

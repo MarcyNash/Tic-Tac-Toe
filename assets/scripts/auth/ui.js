@@ -4,10 +4,11 @@ const signUpSuccess = (data) => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
-  console.log(data)
+  console.log('sign up success')
 }
 
 const signUpFailure = (error) => {
+  console.log('sign up failure')
   // tell user there is an error
   console.error(error)
 }
@@ -16,7 +17,7 @@ const signInSuccess = (data) => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
-  console.log(data)
+  console.log('sign in success')
 }
 
 const signInFailure = (error) => {
@@ -33,6 +34,7 @@ const changePasswordSuccess = (data) => {
 
 const changePasswordFailure = (error) => {
   // tell user there is an error
+  console.log('change password failed')
   console.error(error)
 }
 

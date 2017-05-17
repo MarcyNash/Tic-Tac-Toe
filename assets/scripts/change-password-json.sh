@@ -4,11 +4,11 @@ curl "http://tic-tac-toe.wdibos.com/change-password/48" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=BAhJIiVkZDcwYzM1Y2IyYzUzNTBiMTQxNzYyZGE4MDBmNzAwMgY6BkVG--ead3f1d2e180df8ba03a17b31485c7d32317b972" \
+  --header "Authorization: Token token=BAhJIiVlNTQ1OTBmZjJjOWUxZDgwODY3NzczN2I1OTZiNGM0ZQY6BkVG--3296c69eb15bac66870bd1ec7e53fafdaaf50a12" \
   --data '{
     "passwords": {
-      "old": "pass1234",
-      "new": "pass5678"
+      "old": "pass5678",
+      "new": "pass1234"
     }
 }'
 

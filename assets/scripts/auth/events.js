@@ -23,7 +23,6 @@ const onSignIn = function (event) {
   // prefer event.target over 'this' NEVER use 'this'
   console.log('onSignIn')
   const data = getFormFields(event.target)
-  console.log('request is  ' + event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
   api.signIn(data)  // passing the credentials to the ajax call
     .then(ui.signInSuccess)   // passing the credentials to the ajax call
@@ -36,7 +35,6 @@ const onChangePassword = function (event) {
   event.preventDefault()
   // prefer event.target over 'this' NEVER use 'this'
   const data = getFormFields(event.target)
-  console.log('request is  ' + event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
   api.changePassword(data)  // passing the credentials to the ajax call
     .then(ui.changePasswordSuccess)   // passing the credentials to the ajax call
