@@ -7,7 +7,7 @@ curl "http://tic-tac-toe.wdibos.com/sign-in" \
   --data '{
     "credentials": {
       "email": "mar123@email",
-      "password": "pass5678"
+      "password": "pass1234"
     }
   }'
 

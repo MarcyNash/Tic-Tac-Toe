@@ -19,34 +19,37 @@ const signIn = function (data) {
     data
   })
     .then((response) => {
-      console.log('response from sign in ' + response)
-      store.userToken = response.user.token
-      store.userID = response.user.id
-      // store.userEmail = response.userEmail
+      store.currentPlayer.id = response.user.id
+      store.currentPlayer.email = response.user.email
+      store.currentPlayer.token = response.user.token
+      // if (store.playersArray.length === 0 ||
+      //   store.playersArray.prototype.firstIn(newPlayer) === false) {
+      //   store.playersArray.push(newPlayer)
+      // }
+      // store.playersArray.push(newPlayer)
     })
 }
 
 const changePassword = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/change-password/' + store.userID,
+    url: config.apiOrigin + '/change-password/' + store.currentPlayer.id,
     method: 'PATCH',
     // header: 'Authorization: Token token=' + store.userToken,
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.currentPlayer.token
     },
     data
   })
     .then((response) => {
-      console.log('response from changePassword ' + response)
     })
 }
 
 const signOut = function () {
   return $.ajax({
-    url: config.apiOrigin + '/sign-out/' + store.user.id,
+    url: config.apiOrigin + '/sign-out/' + store.currentPlayer.id,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.currentPlayer.token
     }
   })
 }

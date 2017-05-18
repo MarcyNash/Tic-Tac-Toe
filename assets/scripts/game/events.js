@@ -14,7 +14,7 @@ const onGetGames = function (event) {
   .catch(ui.onGetGamesFailure)
 }
 
-const onSearchGames = function (event) {
+const onGetGame = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   console.log(data.Game.id)
@@ -61,17 +61,21 @@ const onCreateGame = function (event) {
 const onCellClicked = function (event) {
   event.preventDefault()
   console.log(event.target)
-  ui.onCellClicked()
+  api.update(event)
   .then(ui.onCellClickedSuccess)
   .catch(ui.onCellClickedFailure)
 }
 
 const addHandlers = () => {
   // 'on' calls the callback function and passes the browser 'event' as the firsr arg
-  $('.ttt-cell').on('click', onCellClicked)
+  $('.ttt-cell').on('click', onUpdateGame)
+  $('#start-restart-game').on('click', onCreateGame)
 }
 
 module.exports = {
   addHandlers,
-  onCellClicked
+  onUpdateGame,
+  onCreateGame,
+  onGetGames,
+  onGetGame
 }
