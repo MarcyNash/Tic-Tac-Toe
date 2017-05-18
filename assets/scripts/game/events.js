@@ -1,13 +1,13 @@
 'use strict'
 
+const getFormFields = require('../../../lib/get-form-fields')
+
 const api = require('./api')
 const ui = require('./ui')
-const getFormFields = require('../../../lib/get-form-fields')
-// const gameEvents = require('./game/events.js')
 
 const onGetGames = function (event) {
   event.preventDefault()
-  console.log('event worked')
+  // console.log('event worked')
   // index().then().catch()
   api.index()
   .then(ui.onGetGamesSuccess)
@@ -17,37 +17,33 @@ const onGetGames = function (event) {
 const onGetGame = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data.Game.id)
+  // console.log(data.Game.id)
   api.show(data)
   .then(ui.onSearchGameSuccess)
   .catch(ui.onSearchGameFailure)
 }
 
-const onDeleteGame = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log(data)
-  api.destroy(data)
-  .then(ui.onDeleteGameSuccess)
-  .catch(ui.onDeleteGameFailure)
-}
-
 const onUpdateGame = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log('Got to onUpdateGame')
-  console.log(data)
+  const data = getFormFields(event.currentTarget)
+  console.log('onUpdateGame  ')
+  // console.log('Got to onUpdateGame')
+  // console.log(data)
   api.update(data)
+  .then((response) => {
+    $('form#cell0.tile').val(data.game.cell.value)
+  })
   .then(ui.onUpdateGameSuccess)
   .catch(ui.onUpdateGameFailure)
 }
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log('Got to onCreateGame')
-  console.log(data)
-  api.create(data)
+  // const data = getFormFields(event.target)
+  // console.log('Got to onCreateGame')
+  // console.log(data)
+  api.create()
+  .then(addGameboardClickHandlers)
   .then(ui.onCreateGameSuccess)
   .catch(ui.onCreateGameFailure)
 }
@@ -58,18 +54,26 @@ const onCreateGame = function (event) {
 // beginning with 'on' to denote that it is done when the GET /Games
 // button is clicked
 
-const onCellClicked = function (event) {
-  event.preventDefault()
-  console.log(event.target)
-  api.update(event)
-  .then(ui.onCellClickedSuccess)
-  .catch(ui.onCellClickedFailure)
-}
+// const onCellClicked = function (event) {
+//   event.preventDefault()
+//   console.log(event.target)
+//   api.update(event)
+//   .then(ui.onCellClickedSuccess)
+//   .catch(ui.onCellClickedFailure)
+// }
 
 const addHandlers = () => {
   // 'on' calls the callback function and passes the browser 'event' as the firsr arg
-  $('.ttt-cell').on('click', onUpdateGame)
+  // $('#cell0').on('click', onUpdateGame)
+  // $('#cell1').on('click', onUpdateGame)
+  // $('#cell2').on('click', onUpdateGame)
   $('#start-restart-game').on('click', onCreateGame)
+}
+
+let addGameboardClickHandlers = function () {
+  $('#cell0').on('click', onUpdateGame)
+  $('#cell1').on('click', onUpdateGame)
+  $('#cell2').on('click', onUpdateGame)
 }
 
 module.exports = {
@@ -77,5 +81,6 @@ module.exports = {
   onUpdateGame,
   onCreateGame,
   onGetGames,
-  onGetGame
+  onGetGame,
+  addGameboardClickHandlers
 }

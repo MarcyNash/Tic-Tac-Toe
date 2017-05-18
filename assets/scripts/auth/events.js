@@ -21,7 +21,6 @@ const onSignIn = function (event) {
 // ALWAYS, ALWAYS first in event handler
   event.preventDefault()
   // prefer event.target over 'this' NEVER use 'this'
-  console.log('onSignIn')
   const data = getFormFields(event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
   api.signIn(data)  // passing the credentials to the ajax call
@@ -46,7 +45,6 @@ const onSignOut = function (event) {
   event.preventDefault()
   // prefer event.target over 'this' NEVER use 'this'
   const data = getFormFields(event.target)
-  console.log('request is  ' + event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
   api.signOut(data)  // passing the credentials to the ajax call
     .then(ui.signOutSuccess)   // passing the credentials to the ajax call
