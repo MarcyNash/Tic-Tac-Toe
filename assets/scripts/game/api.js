@@ -2,60 +2,76 @@
 
 const config = require('../config')
 const store = require('../store')
+const game = require('./gameEngine')
 
 const index = function () {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',
     headers: {
-      Authorization: 'Token token=' + store.currentPlayer.token
+      Authorization: 'Token token=' + game.currentPlayer.token
     }
+  })
+  .then((response) => {
+    game.response = response
   })
 }
 
 const show = function (data) {
-  console.log(data.Game.id)
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.currentGame.game.id,
-    method: 'GET'
+    url: config.apiOrigin + '/games/' + game.currentGame.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + game.currentPlayer.token
+    }
+  })
+  .then((response) => {
+    game.currentGame = response.game
   })
 }
 
-const destroy = function (data) {
-  console.log(data.Game.id)
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + data.Game.id,
-    method: 'DELETE'
-  })
-}
+// {
+//   "game": {
+//     "cell": {
+//       "index": 0,
+//       "value": "x"
+//     },
+//     "over": false
+//   }
+// }
 
 const update = function (data) {
-  console.log('Made it to api.update')
-  console.log(data)
-  // get indexID from data
+  data.game.cell.value = game.moveArray[game.currentMove % 2]
+  store.currentMove++
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.currentGame.game.id,
+    url: config.apiOrigin + '/games/' + game.currentGame.id,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + game.currentPlayer.token
+    },
     data
+  })
+  .then((response) => {
+    store.response = response
   })
 }
 
-const create = function (data) {
-  console.log('Made it to api.update')
-  console.log(data)
+const create = function () {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
-      Authorization: 'Token token=' + store.currentPlayer.token
+      Authorization: 'Token token=' + game.currentPlayer.token
     }
+  })
+  .then((response) => {
+    game.currentGame = response.game
   })
 }
 
 module.exports = {
   index,
   show,
-  destroy,
   update,
   create
 }

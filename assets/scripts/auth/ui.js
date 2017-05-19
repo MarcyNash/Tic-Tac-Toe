@@ -4,9 +4,6 @@ const signUpSuccess = (data) => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
-  console.log('sign up success')
-  $('sign-me-in').val('Signed In')
-  $('sign-me-in').enable(false)
 }
 
 const signUpFailure = (error) => {
@@ -20,6 +17,9 @@ const signInSuccess = (data) => {
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
   console.log('sign in success')
+  // $('#sign-in').modal.close()
+  // $('sign-me-in').val('You are signed In')
+  // $('sign-me-in').enable(false)
 }
 
 const signInFailure = (error) => {
