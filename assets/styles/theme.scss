@@ -5,8 +5,14 @@ body {
   color: $font-color;
 }
 
+.auth-dialog {
+  background-color: $background-color;
+  color: $black;
+}
+
 .box {
   border: 2px solid $black;
+  padding: 0;
 }
 
 .cell-height-width {
