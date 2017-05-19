@@ -42,7 +42,7 @@ const show = function (data) {
 
 const update = function (data) {
   data.game.cell.value = game.moveArray[game.currentMove % 2]
-  store.currentMove++
+  game.currentMove++
   return $.ajax({
     url: config.apiOrigin + '/games/' + game.currentGame.id,
     method: 'PATCH',

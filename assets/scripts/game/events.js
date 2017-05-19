@@ -25,13 +25,16 @@ const onGetGame = function (event) {
 
 const onUpdateGame = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.currentTarget)
+  const currentForm = event.currentTarget
+  const data = getFormFields(currentForm)
   console.log('onUpdateGame  ')
   // console.log('Got to onUpdateGame')
   // console.log(data)
   api.update(data)
   .then((response) => {
-    $('form#cell0.tile').val(data.game.cell.value)
+    // Find the input element for the cell that was clicked. I'm sure there is
+    // better jQuery DOM filter.
+    $('input').get(3 * data.game.cell.index + 1).value = data.game.cell.value
   })
   .then(ui.onUpdateGameSuccess)
   .catch(ui.onUpdateGameFailure)
@@ -74,6 +77,12 @@ let addGameboardClickHandlers = function () {
   $('#cell0').on('click', onUpdateGame)
   $('#cell1').on('click', onUpdateGame)
   $('#cell2').on('click', onUpdateGame)
+  $('#cell3').on('click', onUpdateGame)
+  $('#cell4').on('click', onUpdateGame)
+  $('#cell5').on('click', onUpdateGame)
+  $('#cell6').on('click', onUpdateGame)
+  $('#cell7').on('click', onUpdateGame)
+  $('#cell8').on('click', onUpdateGame)
 }
 
 module.exports = {
