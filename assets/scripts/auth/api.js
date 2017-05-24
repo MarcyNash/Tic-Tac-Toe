@@ -35,8 +35,6 @@ const changePassword = function (data) {
     },
     data
   })
-    .then((response) => {
-    })
 }
 
 const signOut = function () {

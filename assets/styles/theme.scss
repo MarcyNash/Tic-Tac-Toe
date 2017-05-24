@@ -10,15 +10,19 @@ body {
   color: $black;
 }
 
+.auth-btn {
+  padding: 20px;
+}
+
 .box {
   border: 2px solid $black;
   padding: 0;
 }
 
 .cell-height-width {
-  height: 150px;
+  height: 200px;
   padding: 0;
-  width: 250px;
+  width: 200px;
 }
 
 .ttt-cell {

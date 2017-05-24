@@ -4,6 +4,7 @@ const signUpSuccess = (data) => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
+  $('#sign-up-close').click()
 }
 
 const signUpFailure = (error) => {
@@ -16,16 +17,16 @@ const signInSuccess = (data) => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
+  // $('#notifications').val('sign in success')
   console.log('sign in success')
-  // $('#sign-in').modal.close()
-  // $('sign-me-in').val('You are signed In')
-  // $('sign-me-in').enable(false)
+  $('#sign-in-close').click()
 }
 
 const signInFailure = (error) => {
   // tell user there is an error
   console.log('sign in failure')
-  console.error(error)
+  console.log(error)
+  $('#sign-in-failure').hidden('false')
 }
 
 const changePasswordSuccess = (data) => {
@@ -33,12 +34,13 @@ const changePasswordSuccess = (data) => {
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
   console.log('password changed! ')
+  $('#change-password-close').click()
 }
 
 const changePasswordFailure = (error) => {
   // tell user there is an error
   console.log('change password failed')
-  console.error(error)
+  console.log(error)
 }
 
 const signOutSuccess = (data) => {
@@ -46,6 +48,7 @@ const signOutSuccess = (data) => {
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
   console.log('sign out success! ')
+  $('#sign-out-close').click()
 }
 
 const signOutFailure = (error) => {

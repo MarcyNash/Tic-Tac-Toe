@@ -15,40 +15,36 @@
 
 <body class="container-fluid">
   <nav class="navbar navbar-default navbar-static-top">
-    <div class="nav-container container">
-      <div class="col-xs-3 col-md-3">
+    <div class="nav-container-fluid">
+      <!-- <div class="col-xs-3 col-md-3"> -->
       <div class="input-group">
         <div class="input-group-btn">
-          <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#signUp" name="sign-me-up">
-                Sign Up!
-              </button>
-          <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#signIn" name="sign-me-in">
+          <button type="button" class="btn btn-default btn-lg auth-btn" data-toggle="modal" data-target="#signUp" name="sign-me-up">
+                Sign Up </button>
+          <button type="button" class="btn btn-default btn-lg auth-btn" data-toggle="modal" data-target="#signIn" name="sign-me-in">
                 Sign In!
               </button>
-          <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#changePassword" name="change-my-password">
-                Change Password!
-              </button>
-          <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#signOut" name="sign-me-out">
-                Sign Out!
-              </button>
-          <button id="spacing" type="button" class="btn btn-lg" name="spacebutton" hidden="true"></button>
-        </div>
+          <button type="button" class="btn btn-default btn-lg auth-btn" data-toggle="modal" data-target="#changePassword" name="change-my-password">
+                Change Password!</button>
+          <button type="button" class="btn btn-default btn-lg auth-btn" data-toggle="modal" data-target="#signOut" name="sign-me-out">
+                Sign Out!</button>
+          </div>
         <div>
         <button id="start-restart-game" type="button" class="btn btn-default btn-lg" name="play-game"> Start Tic-Tac-Toe Game </button>
       </div>
-      </div>
     </div>
-    </div>
+    <!-- </div> -->
   </nav>
+
 
   <!-- <form id="gameboard"> -->
     <h2>Tic-Tac-Toe</h2>
-    <div class="container-fluid"></div>
+    <!-- <div class="container-fluid"></div> -->
       <div class="row">
         <form id="cell0">
           <div data-indexID="0" class="col-xs-4 col-md-4">
             <input name="game[cell][index]" type="text" value="0" hidden="true">
-            <input name="game[cell][value]" class="ttt-cell cell-height-width box" type="text" value="T">
+            <input name="game[cell][value]" class="ttt-cell cell-height-width box" type="text" readonly="true" value="T">
             <input name="game[over]" type="text" value="0" hidden="true">
           </div>
         </form>
@@ -107,15 +103,21 @@
         </form>
         <form id="cell8">
           <div data-indexID="8" class="col-xs-4 col-md-4">
+            <fieldset class="disabled">
             <input name="game[cell][index]" type="text" value="8" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="E">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" disabled="true" type="text" value="E">
             <input name="game[over]" type="text" value="0" hidden="true">
+          </fieldset>
           </div>
         </form>
       </div>
 
   <!-- </form> -->
-
+  <div class="panel panel-default">
+  <div id="notifications"class="panel-body">
+    input
+  </div>
+</div>
 
   <!-- Sign Up Modal -->
   <form id="sign-up">
@@ -123,7 +125,7 @@
       <div class="modal-dialog auth-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button"  id="sign-up-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Sign Up</h4>
           </div>
           <div class="modal-body">
@@ -153,7 +155,7 @@
       <div class="modal-dialog auth-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" id="sign-in-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Sign In</h4>
           </div>
           <div class="modal-body">
@@ -166,6 +168,9 @@
       </label>
             </fieldset>
           </div>
+          <div id="sign-in-failure" class="alert alert-danger" hidden="true" role="alert">
+            <p>Email and password don't match. Please re-enter.</p>
+</div>
           <div class="modal-footer">
             <input type="submit" name="submit" value="Sign In!">
           </div>
@@ -180,19 +185,16 @@
       <div class="auth-dialog modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button"  id="change-password-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Change Password</h4>
           </div>
           <div class="modal-body">
             <fieldset>
-              <label>Email
-        <input type="text" name="[credentials][email]" value="">
-        </label>
               <label>Old Password
-          <input type="password" name="[password][old]" value="">
+          <input type="password" name="[passwords][old]" value="">
           </label>
               <label>New Password
-          <input type="password" name="[password][new]" value="">
+          <input type="password" name="[passwords][new]" value="">
         </label>
             </fieldset>
           </div>
@@ -210,7 +212,7 @@
       <div class="auth-dialog modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" id="sign-out-close"  class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Sign Out</h4>
           </div>
           <div class="modal-body">

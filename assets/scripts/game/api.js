@@ -52,7 +52,7 @@ const update = function (data) {
     data
   })
   .then((response) => {
-    store.response = response
+    game.response = response
   })
 }
 

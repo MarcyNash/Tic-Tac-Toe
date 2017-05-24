@@ -35,6 +35,7 @@ const onUpdateGame = function (event) {
     // Find the input element for the cell that was clicked. I'm sure there is
     // better jQuery DOM filter.
     $('input').get(3 * data.game.cell.index + 1).value = data.game.cell.value
+    $('input').get(3 * data.game.cell.index + 1).off('click')
   })
   .then(ui.onUpdateGameSuccess)
   .catch(ui.onUpdateGameFailure)
