@@ -30,7 +30,7 @@
                 Sign Out!</button>
           </div>
         <div>
-        <button id="start-restart-game" type="button" class="btn btn-default btn-lg" name="play-game"> Start Tic-Tac-Toe Game </button>
+        <button id="start-restart-game" type="button" class="btn btn-default btn-lg" disable="true" hidden="true" name="play-game"> Start Tic-Tac-Toe Game </button>
       </div>
     </div>
     <!-- </div> -->
@@ -51,14 +51,14 @@
         <form id="cell1">
           <div data-indexID="1" class="col-xs-4 col-md-4">
             <input name="game[cell][index]" type="text" value="1" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="I">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" readonly="true" value="I">
             <input name="game[over]" type="text" value="0" hidden="true">
           </div>
         </form>
         <form id="cell2">
           <div data-indexID="2" class="col-xs-4 col-md-4">
             <input name="game[cell][index]" type="text" value="2" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="C">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" readonly="true" value="C">
             <input name="game[over]" type="text" value="0" hidden="true">
           </div>
         </form>
@@ -67,7 +67,7 @@
         <form id="cell3">
           <div data-indexID="3" class="col-xs-4 col-md-4">
             <input name="game[cell][index]" type="text" value="3" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="T">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" readonly="true" value="T">
             <input name="game[over]" type="text" value="0" hidden="true">
           </div>
         </form>
@@ -81,7 +81,7 @@
         <form id="cell5">
           <div data-indexID="5" class="col-xs-4 col-md-4">
             <input name="game[cell][index]" type="text" value="5" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="C">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" readonly="true" value="C">
             <input name="game[over]" type="text" value="0" hidden="true">
           </div>
         </form>
@@ -90,14 +90,14 @@
         <form id="cell6">
           <div data-indexID="6" class="col-xs-4 col-md-4">
             <input name="game[cell][index]" type="text" value="6" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="T">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" readonly="true" value="T">
             <input name="game[over]" type="text" value="0" hidden="true">
           </div>
         </form>
         <form id="cell7">
           <div data-indexID="7" class="col-xs-4 col-md-4">
             <input name="game[cell][index]" type="text" value="7" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="O">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" readonly="true" value="O">
             <input name="game[over]" type="text" value="0" hidden="true">
           </div>
         </form>
@@ -105,7 +105,7 @@
           <div data-indexID="8" class="col-xs-4 col-md-4">
             <fieldset class="disabled">
             <input name="game[cell][index]" type="text" value="8" hidden="true">
-            <input name="game[cell][value]" class="cell-height-width box ttt-cell" disabled="true" type="text" value="E">
+            <input name="game[cell][value]" class="cell-height-width box ttt-cell" disabled="true" type="text" readonly="true" value="E">
             <input name="game[over]" type="text" value="0" hidden="true">
           </fieldset>
           </div>

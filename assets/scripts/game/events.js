@@ -35,7 +35,8 @@ const onUpdateGame = function (event) {
     // Find the input element for the cell that was clicked. I'm sure there is
     // better jQuery DOM filter.
     $('input').get(3 * data.game.cell.index + 1).value = data.game.cell.value
-    $('input').get(3 * data.game.cell.index + 1).off('click')
+    // Turn off click event handler for cell.
+    $('#cell' + data.game.cell.index).off('click')
   })
   .then(ui.onUpdateGameSuccess)
   .catch(ui.onUpdateGameFailure)
@@ -74,7 +75,7 @@ const addHandlers = () => {
   $('#start-restart-game').on('click', onCreateGame)
 }
 
-let addGameboardClickHandlers = function () {
+const addGameboardClickHandlers = function () {
   $('#cell0').on('click', onUpdateGame)
   $('#cell1').on('click', onUpdateGame)
   $('#cell2').on('click', onUpdateGame)

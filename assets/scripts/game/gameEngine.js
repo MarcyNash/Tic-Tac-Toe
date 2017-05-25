@@ -25,11 +25,10 @@ const moveArray = ['x', 'o']
 let currentMove = 0
 
 // possible states -- 'sign-in', 'get-game', 'game-in-progress'
-let playState = 'sign-in'
+// let playState = 'sign-in'
 
-let removeClickHandler = function (gameboardCell) {
-  $(gameboardCell).off('click')
-}
+// const allCreate
+  // $('#start-restart-game').on('click', onCreateGame)
 
 // const Game = function (id) {
 //   this.id = id
@@ -56,7 +55,5 @@ module.exports = {
   currentGame,
   currentPlayer,
   moveArray,
-  currentMove,
-  playState,
-  removeClickHandler
+  currentMove
 }

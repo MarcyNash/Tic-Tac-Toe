@@ -20,6 +20,8 @@ const signInSuccess = (data) => {
   // $('#notifications').val('sign in success')
   console.log('sign in success')
   $('#sign-in-close').click()
+  // $('#start-restart-game').on('click', onCreateGame)
+  $('#start-restart-game').disable('false')
 }
 
 const signInFailure = (error) => {
