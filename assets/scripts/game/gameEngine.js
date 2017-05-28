@@ -59,6 +59,10 @@ let isOver = function (game, cell, move) {
   game.cells[cell.index] = ''
   if (isOver) {
     console.log('game is over')
+    // turn off all tic-tac-toe game board cell clicks
+    for (let i = 0; i < 9; i++) {
+      $('#cell' + i).off('click')
+    }
   }
   return isOver
 }

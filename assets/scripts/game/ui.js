@@ -35,9 +35,9 @@ const onDeleteGameFailure = (response) => {
 const onUpdateGameSuccess = (response) => {
   const winner = gameEngine.winner(gameEngine.currentGame)
   if (winner === 'x') {
-    $('#notifications').text('x won')
+    $('#notifications').text('Game Over - x won')
   } else if (winner === 'o') {
-    $('#notifications').text('o won')
+    $('#notifications').text('Game Over - o won')
   } else if (gameEngine.currentMove > 8) {
     $('#notifications').text('Game Over - It\'s a draw')
   }
