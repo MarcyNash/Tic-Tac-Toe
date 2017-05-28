@@ -1,15 +1,18 @@
 Tic Tac Toe game readme.md
 
-all - auth dialogs - report success and failure in a status area
+all - auth dialogs - report success and failure in a status area, on button or dialog
+disable buttons as they akre no longer needed
 
 create game
 recreate game
-update cell
+
 check for winner
 alternate player
-game cells should not be editable
-remove click from each cell as clicked
+game cells should not be editable or highlightable
+
 player stats - ui & implement
+
+README.md documentation
 
 
 

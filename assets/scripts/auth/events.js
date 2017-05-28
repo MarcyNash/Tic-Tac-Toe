@@ -44,9 +44,9 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   // prefer event.target over 'this' NEVER use 'this'
-  const data = getFormFields(event.target)
+  // const data = getFormFields(event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
-  api.signOut(data)  // passing the credentials to the ajax call
+  api.signOut()  // passing the credentials to the ajax call
     .then(ui.signOutSuccess)   // passing the credentials to the ajax call
     // can have multiple '.then' executed in order and passes its return to the next '.then'
     .catch(ui.signOutFailure)

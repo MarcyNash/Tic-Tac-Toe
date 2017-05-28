@@ -5,6 +5,8 @@ const signUpSuccess = (data) => {
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
   $('#sign-up-close').click()
+  $('#sign-up-btn').prop('disabled', true)
+  // $('#start-restart-game').prop( "disabled", false )
 }
 
 const signUpFailure = (error) => {
@@ -19,9 +21,12 @@ const signInSuccess = (data) => {
   // for example, put up default view
   // $('#notifications').val('sign in success')
   console.log('sign in success')
-  $('#sign-in-close').click()
+  $('#sign-in-close').click()   // close sign-in modal dlg
   // $('#start-restart-game').on('click', onCreateGame)
-  $('#start-restart-game').disable('false')
+  // $('#start-restart-game').disabled('false')
+  $('#start-restart-game').prop('disabled', false)
+  $('#sign-up-btn').prop('disabled', true)
+  $('#sign-in-btn').prop('disabled', true)
 }
 
 const signInFailure = (error) => {

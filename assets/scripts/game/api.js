@@ -41,8 +41,9 @@ const show = function (data) {
 // }
 
 const update = function (data) {
-  data.game.cell.value = game.moveArray[game.currentMove % 2]
-  game.currentMove++
+  data.game.cell.value = game.currentMoveArray[game.currentMove % 2]
+  data.game.over = game.isOver(game.currentGame, data.game.cell, game.currentMove)
+  console.log('game over = ' + data.game.over)
   return $.ajax({
     url: config.apiOrigin + '/games/' + game.currentGame.id,
     method: 'PATCH',
@@ -52,11 +53,13 @@ const update = function (data) {
     data
   })
   .then((response) => {
-    game.response = response
+    game.currentMove++
+    game.currentGame.cells[data.game.cell.index] = data.game.cell.value
   })
 }
 
 const create = function () {
+  game.clearGameBoard()
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -66,6 +69,13 @@ const create = function () {
   })
   .then((response) => {
     game.currentGame = response.game
+    game.currentMove = 0
+    if (game.currentPlayer.player_x) {
+      game.currentMoveArray = ['o', 'x']
+    } else {
+      game.currentMoveArray = ['x', 'o']
+    }
+    game.currentPlayer.player_x = !game.currentPlayer.player_x
   })
 }
 
