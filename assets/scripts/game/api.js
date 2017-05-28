@@ -13,7 +13,7 @@ const index = function () {
     }
   })
   .then((response) => {
-    game.response = response
+    game.statisticsArray = response
   })
 }
 
@@ -71,9 +71,9 @@ const create = function () {
     game.currentGame = response.game
     game.currentMove = 0
     if (game.currentPlayer.player_x) {
-      game.currentMoveArray = ['o', 'x']
+      game.currentMoveArray = ['O', 'X']
     } else {
-      game.currentMoveArray = ['x', 'o']
+      game.currentMoveArray = ['X', 'O']
     }
     game.currentPlayer.player_x = !game.currentPlayer.player_x
   })

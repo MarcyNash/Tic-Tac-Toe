@@ -3,48 +3,35 @@
 const gameEngine = require('./gameEngine')
 
 const onGetGamesSuccess = (response) => {
-  console.log('yaaaayyyyyyy we did it')
-  console.log(response)
+  $('#notifications').text('Got the requested games.')
+  gameEngine.showStatistics(gameEngine.statisticsArray.games)
 }
 
 const onGetGamesFailure = (response) => {
-  console.log('boooooo, we failed')
-  console.log(response)
+  $('#notifications').text('Unable to get the requested games. Cannot calculate statistics')
 }
 
-const onSearchGameSuccess = (response) => {
-  console.log('yaaaayyyyyyy we did it')
-  console.log(response)
+const onGetGameSuccess = (response) => {
+  $('#notifications').text('Get the requested game.')
 }
 
-const onSearchGameFailure = (response) => {
-  console.log('boooooo, we failed')
-  console.log(response)
-}
-
-const onDeleteGameSuccess = (response) => {
-  console.log('yaaaayyyyyyy we did it')
-  console.log(response)
-}
-
-const onDeleteGameFailure = (response) => {
-  console.log('boooooo, we failed')
-  console.log(response)
+const onGetGameFailure = (response) => {
+  $('#notifications').text('Unable to get the requested game.')
 }
 
 const onUpdateGameSuccess = (response) => {
   const winner = gameEngine.winner(gameEngine.currentGame)
   if (winner === 'x') {
-    $('#notifications').text('Game Over - x won')
+    $('#notifications').text('Game Over - X won')
   } else if (winner === 'o') {
-    $('#notifications').text('Game Over - o won')
+    $('#notifications').text('Game Over - O won')
   } else if (gameEngine.currentMove > 8) {
     $('#notifications').text('Game Over - It\'s a draw')
   }
 }
 
 const onUpdateGameFailure = (response) => {
-  console.log('boooooo, we failed')
+  $('#notifications').text('Unable to update the game.')
   console.log(response)
 }
 
@@ -59,8 +46,8 @@ const onCreateGameFailure = (response) => {
 module.exports = {
   onGetGamesSuccess,
   onGetGamesFailure,
-  onSearchGameSuccess,
-  onSearchGameFailure,
+  onGetGameSuccess,
+  onGetGameFailure,
   onUpdateGameSuccess,
   onUpdateGameFailure,
   onCreateGameSuccess,

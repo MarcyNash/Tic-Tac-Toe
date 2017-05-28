@@ -7,7 +7,7 @@ const ui = require('./ui')
 
 const onGetGames = function (event) {
   event.preventDefault()
-  // console.log('event worked')
+  console.log('event worked')
   // index().then().catch()
   api.index()
   .then(ui.onGetGamesSuccess)
@@ -19,8 +19,8 @@ const onGetGame = function (event) {
   const data = getFormFields(event.target)
   // console.log(data.Game.id)
   api.show(data)
-  .then(ui.onSearchGameSuccess)
-  .catch(ui.onSearchGameFailure)
+  .then(ui.onGetGameSuccess)
+  .catch(ui.onGetGameFailure)
 }
 
 const onUpdateGame = function (event) {
@@ -73,6 +73,7 @@ const addHandlers = () => {
   // $('#cell1').on('click', onUpdateGame)
   // $('#cell2').on('click', onUpdateGame)
   $('#start-restart-game').on('click', onCreateGame)
+  $('#game-statistics').on('click', onGetGames)
 }
 
 const addGameboardClickHandlers = function () {

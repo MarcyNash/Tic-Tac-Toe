@@ -10,9 +10,7 @@ const signUpSuccess = (data) => {
 }
 
 const signUpFailure = (error) => {
-  console.log('sign up failure')
-  // tell user there is an error
-  console.error(error)
+  $('#notifications').text('Sign Up failed: ' + error)
 }
 
 const signInSuccess = (data) => {
@@ -25,43 +23,49 @@ const signInSuccess = (data) => {
   // $('#start-restart-game').on('click', onCreateGame)
   // $('#start-restart-game').disabled('false')
   $('#start-restart-game').prop('disabled', false)
+  $('#game-statistics').prop('disabled', false)
+  $('#change-password-btn').prop('disabled', false)
+  $('#sign-out-btn').prop('disabled', false)
   $('#sign-up-btn').prop('disabled', true)
   $('#sign-in-btn').prop('disabled', true)
 }
 
 const signInFailure = (error) => {
   // tell user there is an error
-  console.log('sign in failure')
-  console.log(error)
-  $('#sign-in-failure').hidden('false')
+  $('#notifications').text('Sign In failed: ' + error)
+  // $('#sign-in-failure').hidden('false')
 }
 
 const changePasswordSuccess = (data) => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
-  console.log('password changed! ')
+  $('#notifications').text('Password changed.')
   $('#change-password-close').click()
 }
 
 const changePasswordFailure = (error) => {
   // tell user there is an error
-  console.log('change password failed')
-  console.log(error)
+  $('#notifications').text('Change password failed: ' + error)
 }
 
 const signOutSuccess = (data) => {
   // please do not leave this in your production application
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
-  console.log('sign out success! ')
+  $('#notifications').text('You are signed out.')
   $('#sign-out-close').click()
+  $('#start-restart-game').prop('disabled', true)
+  $('#game-statistics').prop('disabled', true)
+  $('#change-password-btn').prop('disabled', true)
+  $('#sign-out-btn').prop('disabled', true)
+  $('#sign-up-btn').prop('disabled', false)
+  $('#sign-in-btn').prop('disabled', false)
 }
 
 const signOutFailure = (error) => {
-  console.log('sign out failure! ')
   // tell user there is an error
-  console.error(error)
+  $('#notifications').text('Sign out failed: ' + error)
 }
 
 module.exports = {

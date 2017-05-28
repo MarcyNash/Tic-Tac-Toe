@@ -23,6 +23,7 @@ let currentPlayer = {
 
 let currentMove = 0
 let currentMoveArray = []
+let statisticsArray = []
 
 const winner = function (game) {
   if (game.cells[0] === game.cells[1] &&
@@ -71,6 +72,40 @@ const clearGameBoard = function () {
   $('input.ttt-cell').val(' ')
 }
 
+const showStatistics = function (arr) {
+  let inProgressCount = 0
+  let finshedCount = 0
+  let xWonCount = 0
+  let oWonCount = 0
+  let drawCount = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].over) {
+      finshedCount++
+      const whoWon = winner(arr[i])
+      if (whoWon === 'x') {
+        xWonCount++
+      } else if (whoWon === 'o') {
+        oWonCount++
+      } else {
+        drawCount++
+      }
+    } else {
+      inProgressCount++
+    }
+  }
+  $('#notifications').text('X won ' + xWonCount + ' games, O won ' + oWonCount + ' games and there are ' + drawCount + ' draws. \nThere are ' + inProgressCount + ' games in progress.')
+}
+
+const showGamesInProgress = function () {
+  let inProgressCount = 0
+  for (let i = 0; i < statisticsArray.length; i++) {
+    if (statisticsArray[i].over === false) {
+      inProgressCount++
+      // add gameid to a dropdown list
+    }
+  }
+}
+
 // possible states -- 'sign-in', 'get-game', 'game-in-progress'
 // let playState = 'sign-in'
 
@@ -105,5 +140,7 @@ module.exports = {
   currentMove,
   winner,
   isOver,
-  clearGameBoard
+  clearGameBoard,
+  statisticsArray,
+  showStatistics
 }
