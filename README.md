@@ -58,4 +58,7 @@ the methods that needed them. I still don't really know why this happened or how
 to fix it. As time permits I will explore the issues.
 
 I thought about re-structuring the objects, but I didn't have the time. I learned a
-lot about why planning up is so important.   
+lot about why planning up is so important.
+
+I also ran out of time before I could give the user a list of in-progress games that
+they could select from instead of creating new games each time they wanted to play.    
