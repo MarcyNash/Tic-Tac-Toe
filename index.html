@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <!-- <div class="col-xs-3 col-md-3"> -->
+      <div class="button-group">
+        <button type="button" id="sign-up-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signUp" name="sign-me-up">Sign Up</button>
+        <button type="button" id="sign-in-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signIn" name="sign-me-in">Sign In</button>
+        <button type="button" id="change-password-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#changePassword" name="change-my-password">Change Password</button>
+        <button type="button" id="sign-out-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#signOut" name="sign-me-out">Sign Out</button>
+        <!-- Buttons are put in reverse from how they appear on the nav bar.  There's probably a better way! -->
+        <div class="navbar-right">
+          <button id="game-statistics" type="button" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" name="get-stats">Statistics</button>
+        </div>
+        <div class="navbar-right">
+          <button id="start-restart-game" type="button" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" name="play-game">Start Tic-Tac-Toe Game</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- </div> -->
+
+
+  <!-- <form id="gameboard"> -->
+  <h2>Tic-Tac-Toe</h2>
+  <!-- <div class="container-fluid"></div> -->
+  <div class="row">
+    <form id="cell0">
+      <div data-indexID="0" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="0" hidden="true">
+        <input name="game[cell][value]" class="ttt-cell cell-height-width box" type="text" value="T">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+    <form id="cell1">
+      <div data-indexID="1" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="1" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="I">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+    <form id="cell2">
+      <div data-indexID="2" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="2" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="C">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <form id="cell3">
+      <div data-indexID="3" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="3" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="T">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+    <form id="cell4">
+      <div data-indexID="4" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="4" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="A">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+    <form id="cell5">
+      <div data-indexID="5" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="5" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="C">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <form id="cell6">
+      <div data-indexID="6" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="6" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="T">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+    <form id="cell7">
+      <div data-indexID="7" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="7" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="O">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+    <form id="cell8">
+      <div data-indexID="8" class="col-xs-4 col-md-4 col-lg-4">
+        <input name="game[cell][index]" type="text" value="8" hidden="true">
+        <input name="game[cell][value]" class="cell-height-width box ttt-cell" type="text" value="E">
+        <input name="game[over]" type="text" value="0" hidden="true">
+      </div>
+    </form>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body status-area">
+      <p id="notifications"></p>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <form id="sign-up">
+    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="Sign Up!">
+      <div class="modal-dialog auth-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" id="sign-up-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Sign Up</h4>
+          </div>
+          <div class="modal-body">
+            <fieldset>
+              <label>Email
+        <input type="text" name="[credentials][email]" value="">
+        </label>
+              <label>Password
+        <input type="password" name="[credentials][password]" value="">
+      </label>
+              <label>Password Confirmation
+        <input type="password" name="[credentials][password_confirmation]" value="">
+      </label>
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" name="submit" value="Sign Up!">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Sign In Modal -->
+  <form id="sign-in">
+    <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="Sign In!">
+      <div class="modal-dialog auth-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" id="sign-in-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Sign In</h4>
+          </div>
+          <div class="modal-body">
+            <fieldset>
+              <label>Email
+        <input type="text" name="[credentials][email]" value="">
+        </label>
+              <label>Password
+        <input type="password" name="[credentials][password]" value="">
+      </label>
+            </fieldset>
+          </div>
+          <div id="sign-in-failure" class="alert alert-danger" hidden="true" role="alert">
+            <p>Email and password don't match. Please re-enter.</p>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" name="submit" value="Sign In!">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Change Password Modal -->
+  <form id="change-password">
+    <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="Change Password">
+      <div class="auth-dialog modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" id="change-password-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Change Password</h4>
+          </div>
+          <div class="modal-body">
+            <fieldset>
+              <label>Old Password
+          <input type="password" name="[passwords][old]" value="">
+          </label>
+              <label>New Password
+          <input type="password" name="[passwords][new]" value="">
+        </label>
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" name="submit" value="Change Password!">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Sign Out Modal -->
+  <form id="sign-out">
+    <div class="modal fade" id="signOut" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
+      <div class="auth-dialog modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" id="sign-out-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Sign Out</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <input type="submit" name="submit" value="Sign Out!">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</body>
+
+</html>
