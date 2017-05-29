@@ -6,11 +6,11 @@ const signUpSuccess = (data) => {
   // for example, put up default view
   $('#sign-up-close').click()
   $('#sign-up-btn').prop('disabled', true)
-  // $('#start-restart-game').prop( "disabled", false )
+  $('#notifications').text('Sign Up succeeded. Please log in to play Tic-Tac-Toe.')
 }
 
-const signUpFailure = (error) => {
-  $('#notifications').text('Sign Up failed: ' + error)
+const signUpFailure = () => {
+  $('#notifications').text('Sign Up failed. Please make sure your passwords match.')
 }
 
 const signInSuccess = (data) => {
@@ -18,7 +18,6 @@ const signInSuccess = (data) => {
   // instead, you probably want to manipulate the DOM,
   // for example, put up default view
   // $('#notifications').val('sign in success')
-  console.log('sign in success')
   $('#sign-in-close').click()   // close sign-in modal dlg
   // $('#start-restart-game').on('click', onCreateGame)
   // $('#start-restart-game').disabled('false')
@@ -32,7 +31,7 @@ const signInSuccess = (data) => {
 
 const signInFailure = (error) => {
   // tell user there is an error
-  $('#notifications').text('Sign In failed: ' + error)
+  $('#notifications').text('Sign In failed. Please check that your email and password are correct.')
   // $('#sign-in-failure').hidden('false')
 }
 
@@ -44,9 +43,9 @@ const changePasswordSuccess = (data) => {
   $('#change-password-close').click()
 }
 
-const changePasswordFailure = (error) => {
+const changePasswordFailure = () => {
   // tell user there is an error
-  $('#notifications').text('Change password failed: ' + error)
+  $('#notifications').text('Change password failed. Please check that your old and new passwords are correct.')
 }
 
 const signOutSuccess = (data) => {

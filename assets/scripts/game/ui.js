@@ -3,16 +3,15 @@
 const gameEngine = require('./gameEngine')
 
 const onGetGamesSuccess = (response) => {
-  $('#notifications').text('Got the requested games.')
   gameEngine.showStatistics(gameEngine.statisticsArray.games)
 }
 
 const onGetGamesFailure = (response) => {
-  $('#notifications').text('Unable to get the requested games. Cannot calculate statistics')
+  $('#notifications').text('Unable to get the requested games. Cannot calculate statistics.')
 }
 
 const onGetGameSuccess = (response) => {
-  $('#notifications').text('Get the requested game.')
+  $('#notifications').text('Got the requested game.')
 }
 
 const onGetGameFailure = (response) => {
@@ -21,9 +20,9 @@ const onGetGameFailure = (response) => {
 
 const onUpdateGameSuccess = (response) => {
   const winner = gameEngine.winner(gameEngine.currentGame)
-  if (winner === 'x') {
+  if (winner.toLowerCase() === 'x') {
     $('#notifications').text('Game Over - X won')
-  } else if (winner === 'o') {
+  } else if (winner.toLowerCase() === 'o') {
     $('#notifications').text('Game Over - O won')
   } else if (gameEngine.currentMove > 8) {
     $('#notifications').text('Game Over - It\'s a draw')
@@ -32,15 +31,14 @@ const onUpdateGameSuccess = (response) => {
 
 const onUpdateGameFailure = (response) => {
   $('#notifications').text('Unable to update the game.')
-  console.log(response)
 }
 
 const onCreateGameSuccess = (response) => {
-  $('#notifications').text('Created Tic Tac Toe game. Start playing')
+  $('#notifications').text('Created the Tic Tac Toe game. Start playing!')
 }
 
 const onCreateGameFailure = (response) => {
-  $('#notifications').text('Unable to create the game. Please try again.')
+  $('#notifications').text('Unable to create the game.')
 }
 
 module.exports = {

@@ -1,7 +1,6 @@
 'use strict'
 
 const config = require('../config')
-const store = require('../store')
 const game = require('./gameEngine')
 
 const index = function () {
@@ -29,16 +28,6 @@ const show = function (data) {
     game.currentGame = response.game
   })
 }
-
-// {
-//   "game": {
-//     "cell": {
-//       "index": 0,
-//       "value": "x"
-//     },
-//     "over": false
-//   }
-// }
 
 const update = function (data) {
   data.game.cell.value = game.currentMoveArray[game.currentMove % 2]

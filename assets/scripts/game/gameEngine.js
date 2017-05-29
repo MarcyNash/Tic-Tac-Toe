@@ -24,6 +24,7 @@ let currentPlayer = {
 let currentMove = 0
 let currentMoveArray = []
 let statisticsArray = []
+let idClicked = ''
 
 const winner = function (game) {
   if (game.cells[0] === game.cells[1] &&
@@ -56,10 +57,9 @@ const winner = function (game) {
 
 let isOver = function (game, cell, move) {
   game.cells[cell.index] = cell.value
-  isOver = winner(game) !== '' || move + 1 > 8
+  isOver = winner(game) !== '' || move + 1 > 9
   game.cells[cell.index] = ''
   if (isOver) {
-    console.log('game is over')
     // turn off all tic-tac-toe game board cell clicks
     for (let i = 0; i < 9; i++) {
       $('#cell' + i).off('click')
@@ -72,19 +72,19 @@ const clearGameBoard = function () {
   $('input.ttt-cell').val(' ')
 }
 
-const showStatistics = function (arr) {
+const showStatistics = function (games) {
   let inProgressCount = 0
   let finshedCount = 0
   let xWonCount = 0
   let oWonCount = 0
   let drawCount = 0
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].over) {
+  for (let i = 0; i < games.length; i++) {
+    if (games[i].over) {
       finshedCount++
-      const whoWon = winner(arr[i])
-      if (whoWon === 'x') {
+      const whoWon = winner(games[i])
+      if (whoWon.toLowerCase() === 'x') {
         xWonCount++
-      } else if (whoWon === 'o') {
+      } else if (whoWon.toLowerCase() === 'o') {
         oWonCount++
       } else {
         drawCount++
@@ -93,45 +93,10 @@ const showStatistics = function (arr) {
       inProgressCount++
     }
   }
-  $('#notifications').text('X won ' + xWonCount + ' games, O won ' + oWonCount + ' games and there are ' + drawCount + ' draws. \nThere are ' + inProgressCount + ' games in progress.')
+  $('#notifications').text('X won ' + xWonCount + ' games, O won ' +
+  oWonCount + ' games and there are ' + drawCount + ' draws. \nThere are ' +
+  inProgressCount + ' games in progress.')
 }
-
-const showGamesInProgress = function () {
-  let inProgressCount = 0
-  for (let i = 0; i < statisticsArray.length; i++) {
-    if (statisticsArray[i].over === false) {
-      inProgressCount++
-      // add gameid to a dropdown list
-    }
-  }
-}
-
-// possible states -- 'sign-in', 'get-game', 'game-in-progress'
-// let playState = 'sign-in'
-
-// const allCreate
-  // $('#start-restart-game').on('click', onCreateGame)
-
-// const Game = function (id) {
-//   this.id = id
-//   this.cells = ['', '', '', '', '', '', '', '', '']
-//   this.over = false
-//   this.player_x = {}
-//   this.player_o = {}
-// }
-
-// let playersArray = []
-
-// const findIndex = function (id, email) {
-//   for (let i = 0; i < playersArray.length; i++) {
-//     if (playersArray[0].id ==== id &&
-//       playersArray[0].email ==== email)
-//       return i
-//   }
-//   else {
-//     return -1
-//   }
-// }
 
 module.exports = {
   currentGame,

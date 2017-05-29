@@ -10,8 +10,8 @@ body {
   color: $black;
 }
 
-.auth-btn {
-  padding: 20px;
+.ttt-nav-btns {
+  padding: 10px;
 }
 
 .box {
@@ -20,9 +20,9 @@ body {
 }
 
 .cell-height-width {
-  height: 200px;
-  padding: 0;
-  width: 200px;
+  height: 150px;
+  padding: 40;
+  width: 250px;
 }
 
 .ttt-cell {
@@ -31,4 +31,10 @@ body {
   font-size: 100px;
   // font-weight: '800';
   text-align: center;
+}
+
+.status-area {
+  color: $panel-color;
+  font-size: 20px;
+  margin-top: 100px;
 }
